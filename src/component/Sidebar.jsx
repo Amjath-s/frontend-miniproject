@@ -14,7 +14,6 @@ export function Sidebar()
         <div className="sidebar">
          <h4> <FontAwesomeIcon icon={faFile} className="fonticonalign" /> DOCINTELLIGENCE</h4>
             <ul>
-            
                 <li> <FontAwesomeIcon icon={faHouse} className="fonticonalign"/>Home</li>
                 <li> <FontAwesomeIcon icon={faUser} className="fonticonalign" />User</li>
                 <li> <FontAwesomeIcon icon={faAddressBook} className="fonticonalign"/> About Us</li>

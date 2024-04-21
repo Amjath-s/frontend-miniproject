@@ -1,7 +1,7 @@
 
  import './App.css'
 import { Filemanager } from './component/Filemanager'
-import { Search } from './component/Search'
+
 
 import { Sidebar } from "./component/Sidebar"
 

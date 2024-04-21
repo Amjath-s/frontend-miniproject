@@ -1,9 +1,12 @@
 import { faFile } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import files from './image/file.svg'
+import buttonupload from './image/button.svg'
+import closebutton from './image/close.svg'
 import { useState } from "react"
 
-export function Uploadpopup()
+export function Uploadpopup({onclose})
 {
     const[selectedfile,Setselectedfile]=useState(null)
     const[fileuploaded,Setfileuploaded]=useState(false)
@@ -39,23 +42,11 @@ export function Uploadpopup()
                 // Setfileuploaded(false);
             }
             catch(error)
-            {}
+            {console.log("error")}
 
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
     const fileupload=(event)=>{
         const files=event.target.files[0];
         Setselectedfile(files)
@@ -81,83 +72,45 @@ export function Uploadpopup()
         handlefileupload(selectedfile)
 
      }
-
-
-
-
-
-
-
-
      const filepreview=()=>{
         if(selectedfile)
         {
             console.log("selected file in in if ",selectedfile.name)
             return(
-           
-                <FontAwesomeIcon icon={faFile} className="fileicon" />
-                
-           
+                <img src={files} alt="file" />
             )
         }
 
      }
-
-
-
-
-
-
-
     return(
         <>
-
+       
         <div className="uploadpop">
+            <div className="closebutton">
+                <img src={closebutton} alt="close"  onClick={onclose}/>
+                
+            </div>
+            {/* <img src={files} alt="" className="closebutton" /> */}
             <h3>Fileupload</h3>
-
             {fileuploaded ? (
-             
             <div className="uploadpreview">
             <div className="fileview">  {filepreview()}
             <span>{selectedfile.name}</span>
             </div>
-            <button onClick={handleupload}> Upload </button>
+            <div className="buttonupload" onClick={handleupload}>
+              <img src={buttonupload} alt="" /> 
             </div>
-            
-          
-          
-          // Show preview when uploaded
+            </div>
         ) : (
           <div className="fileupload" onDrop={filedrop} onDragOver={filedrag}>
             <p>--Drop File Here--</p>
             <p>-or-</p>
-            <input type="file" onChange={fileupload} id="fileselect" />
+            <input type="file" onChange={fileupload} id="fileselect" className="input"/>
             <label htmlFor="fileselect">Select File</label>
           </div>
         )}
-
-
-
-        {/* <div className="fileupload" onDrop={filedrop} onDragOver={filedrag}>
-            <p> --Drop File here--</p>
-            <p>-or-</p>
-        <input type="file" onChange={fileupload} id="fileselect"></input>
-        <label htmlFor="fileselect"> select file </label>
         </div>
-        {fileuploaded && (<div className="uploadpreview"> 
-            {filepreview()}
-            <span> {selectedfile.name}</span>
-
-
-        </div>)} */}
-        <button> close</button>
-        
-
-
-
-
-
-        </div>
+       
         </>
     )
 }
