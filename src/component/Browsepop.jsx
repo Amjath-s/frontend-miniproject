@@ -21,13 +21,7 @@ export function Browsepop()
       fetchData();
     }, []);
   
-    useEffect(() => {
-      // Filter files based on search query
-      const filtered = filteredFiles.filter(file =>
-        file.title.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setFilteredFiles(filtered);
-    }, [searchQuery, files]);
+   
   
     const handleSearch = (event) => {
       setSearchQuery(event.target.value);
@@ -70,3 +64,5 @@ export function Browsepop()
 
 
 }
+
+

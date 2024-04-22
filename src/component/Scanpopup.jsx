@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import close from './image/close.svg';
 import scanbutton from './image/scanbutton.svg';
 import axios from 'axios';
+import closebtn from './image/close.svg'
 
 
 export function Scanpopup({ onclose }) {
@@ -41,7 +42,7 @@ export function Scanpopup({ onclose }) {
 
         const response = axios.get('http://127.0.0.1:5000/scan', {
             params: {
-                file_name: filename + '.png'
+                file_name: filename
             },
         }).then((response) => {
             console.log(response.data)
@@ -76,30 +77,49 @@ export function Scanpopup({ onclose }) {
         {isResult ? (
             <>
                 {console.log("Hey")}
-                <div className="scanpopupbar">
-                    <div className="closebutton"></div>
-                    <div className="summarypreview">
+                {console.log("file",filename)}
+                <div className="summaryview">
+                    <div className="closebutton " onClick={onclose}>
+                        <img src={closebtn} alt='close'></img>
+                    </div>
+                    
+                    <div className="">
                         {/* Your summary preview */}
                     </div>
-                    <h4>summary</h4>
+                    <h4>Result</h4>
+                    <div className="viewfilename">
+                        <p>{[filename]}</p>
+                    </div>
                     {console.log("scanned", scanResult)}
-                    <p>{scanResult["100.png"].summary}</p>
-                    <p>{scanResult["100.png"].data}</p>
-
-                    {/* {scanResult && Object.keys(scanResult).map((key) => (
-                        <div key={key}>
-                            <h2>{scanResult[key].title}</h2>
-                            <p><strong>Summary:</strong> {scanResult[key].summary}</p>
-                            <h3>Data:</h3>
-                            <ul>
-                                {scanResult[key].data.map((item, index) => (
-                                    <li key={index}>{item}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))} */}
+                    <div className="fetchedinfo">
+                        <h4> Important data</h4>
+                        {scanResult[filename].data.map((item,index)=>(
+                            <p key={index}>{item}</p>
+                        ))}
+                    </div>
+                    <div className="fetchedinfo">
+                        <h4>Important date's </h4>
+                        {scanResult[filename].dates?(
+                            scanResult[filename].dates.map((dates,index)=>(
+                                <p key={index}>{dates.description}:{dates.value}</p>
+                            ))
+                        ):(<p> No Important Dates</p>)}
 
 
+
+
+                        {/* {scanResult[filename].dates.map((date,indexs)=>(
+                            <p key={indexs}>{date.description}:{date.value}</p>
+                        ))} */}
+                    </div>
+                    <div className="fetchedinfo">
+                        <h4>Summary</h4>
+                        <p>{scanResult[filename].summary}</p>
+                    </div>
+{/* 
+                    <p>{scanResult[filename].summary}</p>
+
+                    <p>{scanResult[filename].data}</p> */}
                 </div>
             </>
         ) : (
@@ -107,7 +127,7 @@ export function Scanpopup({ onclose }) {
                 {console.log("HiHi")}
                 <div className="scanpopupbar">
                     <div className="closebutton" onClick={onclose}>
-                        <img src={close} alt="closebutton" />
+                        <img src={closebtn} alt="closebutton" />
                     </div>
                     <h3>SCAN </h3>
                     <div className="insidescanpop">
