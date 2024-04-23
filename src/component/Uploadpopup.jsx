@@ -14,7 +14,7 @@ export function Uploadpopup({onclose})
 
         if(file)
         {
-            console.log('the file slected to send to api',file)
+           
             const formdata=new FormData();
             formdata.append('file',file);
             try{
@@ -22,11 +22,10 @@ export function Uploadpopup({onclose})
                 const uploadfile= await axios.post('http://127.0.0.1:5000/postfile',formdata,{
                     header:{
                         'Content-Type':'multipart/form-data'
-
                     }  
                 })
 
-                console.log('the uploading result is ',uploadfile.data)
+                // console.log('the uploading result is ',uploadfile.data)
                 if(uploadfile.data.status==='success')
                 {
                     window.alert("file added succesfully")
@@ -35,17 +34,14 @@ export function Uploadpopup({onclose})
                       Setfileuploaded(false);
                         
                     }, 1000);
-
-
                 }
-                // Setselectedfile(false);
-                // Setfileuploaded(false);
+                else{
+                    window.alert("file exist")
+                }  
             }
             catch(error)
             {console.log("error")}
-
         }
-
     }
     const fileupload=(event)=>{
         const files=event.target.files[0];
@@ -90,7 +86,7 @@ export function Uploadpopup({onclose})
                 <img src={closebutton} alt="close"  onClick={onclose}/>
                 
             </div>
-            {/* <img src={files} alt="" className="closebutton" /> */}
+          
             <h3>Fileupload</h3>
             {fileuploaded ? (
             <div className="uploadpreview">

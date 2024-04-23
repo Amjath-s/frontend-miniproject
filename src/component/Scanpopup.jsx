@@ -4,7 +4,6 @@ import scanbutton from './image/scanbutton.svg';
 import axios from 'axios';
 import closebtn from './image/close.svg'
 
-
 export function Scanpopup({ onclose }) {
     const [filename, setFilename] = useState('');
     const [scanResult, setScanResult] = useState({});
@@ -28,18 +27,10 @@ export function Scanpopup({ onclose }) {
             event.preventDefault();
 
             console.log("after key ", filename)
-            scansent()
-
-
-
+            scansent();
         }
     }
-
-
     const handleScan = async () => {
-
-
-
         const response = axios.get('http://127.0.0.1:5000/scan', {
             params: {
                 file_name: filename
@@ -48,7 +39,6 @@ export function Scanpopup({ onclose }) {
             console.log(response.data)
             console.log("response.summary", response.summary)
             setIsResult(true)
-            // setScanResult([JSON.stringify(response.data)])
             setScanResult(response.data)
 
 
@@ -82,9 +72,7 @@ export function Scanpopup({ onclose }) {
                     <div className="closebutton " onClick={onclose}>
                         <img src={closebtn} alt='close'></img>
                     </div>
-                    
                     <div className="">
-                        {/* Your summary preview */}
                     </div>
                     <h4>Result</h4>
                     <div className="viewfilename">
@@ -104,22 +92,11 @@ export function Scanpopup({ onclose }) {
                                 <p key={index}>{dates.description}:{dates.value}</p>
                             ))
                         ):(<p> No Important Dates</p>)}
-
-
-
-
-                        {/* {scanResult[filename].dates.map((date,indexs)=>(
-                            <p key={indexs}>{date.description}:{date.value}</p>
-                        ))} */}
                     </div>
                     <div className="fetchedinfo">
                         <h4>Summary</h4>
                         <p>{scanResult[filename].summary}</p>
                     </div>
-{/* 
-                    <p>{scanResult[filename].summary}</p>
-
-                    <p>{scanResult[filename].data}</p> */}
                 </div>
             </>
         ) : (

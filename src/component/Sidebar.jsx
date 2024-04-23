@@ -19,19 +19,8 @@ export function Sidebar()
                 <li> <FontAwesomeIcon icon={faAddressBook} className="fonticonalign"/> About Us</li>
                 <li> <FontAwesomeIcon icon={faMessage} className="fonticonalign"/> Notification</li>
                 <li> <FontAwesomeIcon icon={faGears} className="fonticonalign"/> Settings</li>
-            </ul>
-            
-
-
-
-
-
+            </ul>  
         </div>
-   
-        
-        
-        
-        
         </>
     )
 }
