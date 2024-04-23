@@ -1,31 +1,26 @@
+import "./App.css";
+import { Filemanager } from "./component/Filemanager";
+import { Recent } from "./component/Recent";
 
- import './App.css'
-import { Filemanager } from './component/Filemanager'
+import { Sidebar } from "./component/Sidebar";
 
 
-import { Sidebar } from "./component/Sidebar"
 
-// import { Fileupload } from "./component/Fileupload"
 
 
 function App() {
-  
-
-
   return (
     <>
-    <div className='main '>
-    <Sidebar/>
-    {/* <Search/> */}
-    <Filemanager/>
-
-    {/* <Sidebar/> */}
-    </div>
-
-     
-
+      <div className="main ">
+        <Sidebar />
+        {/* <Search/> */}
+        <Filemanager />
+        {/* <Sidebar/> */}
+        <Recent />
+      
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

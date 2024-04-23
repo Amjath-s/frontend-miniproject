@@ -1,45 +1,4 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
 h4{
   color: black;
   font-size: larger;
@@ -100,7 +59,7 @@ li:hover{
   position:fixed;
   z-index: 992;
   margin-left:320px;
-  top:100px;
+  top:80px;
   width: 50vw;
   right: 10px;
   margin-right: 300px;
@@ -238,12 +197,10 @@ h3{
   height: 40px;
   color: red;
   background-color: red;
-
-  
 }
 
 .scanpopupbar{
-  /* position:fixed;
+  position:fixed;
   top: 50%;
   left:50%;
   transform: translate(-50%,-50%);
@@ -251,7 +208,7 @@ h3{
   height: 300px;
   z-index:999;
   display: block;
-  background-color: white; */
+  background-color: white;
 
   position: fixed; 
   top: 50%;
@@ -270,9 +227,6 @@ h3{
   cursor: pointer;
   border-radius: 10px;
 }
-
-
-
 
 
 .insidescanpop{
@@ -315,5 +269,95 @@ input{
 
 }
 
+.summaryview
+{
+  width:fit-content;
+  height: 50%;
+  position:fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 997; 
+  display: block;
+  align-items:center;
+  margin-left: 70px;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow:auto;
+ 
 
+}
 
+.impdata p{
+  font-size: 15px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top:6px;
+  
+}
+.fetchedinfo{
+   width:fit-content;
+   /* background-color: red; */
+   padding: 5px;
+   box-sizing: border-box;
+   box-shadow: 0px 2px 3px rgba(1,1,1,0.5);
+   margin: 10px;
+
+}  
+.datealert{
+  width:40%;
+  height: 40%;
+  overflow: auto;
+  background-color: wheat;
+  position: relative;
+
+}
+h4{
+  color: black;
+}
+
+.filedatedisplay{
+  /* background-color: red; */
+  width:max-content;
+
+  position: fixed;
+  bottom:20%;
+  left: calc(50% + 155px); /* Adjust this value according to the width of your .filemanager */
+  transform: translateX(-60%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  overflow:auto
+
+}
+
+.datedisplaybtn{
+  width: 50px;
+  height: 50px;
+}
+tbody{
+  background-color:wheat;
+}
+
+tr{
+  margin-right: 20px;
+}
+th{
+  margin-right: 10px;
+}
+thead{
+  color: blue;
+  background-color:gainsboro;
+}
+a:hover{
+  color: blue;
+}
+a{
+  font-style: none;
+}
