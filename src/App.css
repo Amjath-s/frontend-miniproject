@@ -165,10 +165,7 @@ h3{
   justify-content: center;
 
 }
-/* .fileicon{
-  width: 200px;
-  height: 200px;
-} */
+
 
 /* button{
   width: 100px;
@@ -266,6 +263,7 @@ input{
   margin-left: 70px;
   cursor: pointer;
   border-radius: 10px;
+  overflow: auto;
 
 }
 
